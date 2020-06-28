@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 4bf1dd5af0095f24e8ceea7882d2891f
+labels:
+- Effect
+- 2d
+- Light
+- Volumetric
+- Procedural
+- Dynamic
+timeCreated: 1445828835
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
