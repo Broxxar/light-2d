@@ -56,7 +56,7 @@ public class Light2DEditor : Editor
 			r = (tar.transform.position - Handles.FreeMoveHandle(
 				tar.transform.position + direction * r,
 				Quaternion.identity,
-				HandleUtility.GetHandleSize(tar.transform.position) * 0.035f, Vector3.zero, Handles.DotCap))
+				HandleUtility.GetHandleSize(tar.transform.position) * 0.035f, Vector3.zero, Handles.DotHandleCap))
 				.magnitude;
 		}
 
@@ -71,7 +71,7 @@ public class Light2DEditor : Editor
 		#region Handles
 		Vector3 cwPos = tar.transform.position + (Quaternion.AngleAxis(-tar.Angle / 2, -tar.transform.forward) * (tar.transform.up)) * (tar.Range + HandleUtility.GetHandleSize(tar.transform.position) * 0.3f);
 		Vector3 cwBasePos = tar.transform.position + (Quaternion.AngleAxis(-tar.Angle / 2, -tar.transform.forward) * (tar.transform.up)) * tar.Range;
-		Vector3 cwHandle = Handles.FreeMoveHandle(cwPos, Quaternion.identity, HandleUtility.GetHandleSize(tar.transform.position) * .06f, Vector3.zero, Handles.CircleCap);
+		Vector3 cwHandle = Handles.FreeMoveHandle(cwPos, Quaternion.identity, HandleUtility.GetHandleSize(tar.transform.position) * .06f, Vector3.zero, Handles.CircleHandleCap);
 		Vector3 toCwHandle = (tar.transform.position - cwHandle).normalized;
 		Handles.DrawLine(cwBasePos, cwPos - (cwPos - cwBasePos).normalized * HandleUtility.GetHandleSize(tar.transform.position) * 0.05f);
 
@@ -83,7 +83,7 @@ public class Light2DEditor : Editor
 
 		Vector3 ccwPos = tar.transform.position + (Quaternion.AngleAxis(tar.Angle / 2, -tar.transform.forward) * (tar.transform.up)) * (tar.Range + HandleUtility.GetHandleSize(tar.transform.position) * 0.3f);
 		Vector3 ccwBasePos = tar.transform.position + (Quaternion.AngleAxis(tar.Angle / 2, -tar.transform.forward) * (tar.transform.up)) * tar.Range;
-		Vector3 ccwHandle = Handles.FreeMoveHandle(ccwPos, Quaternion.identity, HandleUtility.GetHandleSize(tar.transform.position) * .06f, Vector3.zero, Handles.CircleCap);
+		Vector3 ccwHandle = Handles.FreeMoveHandle(ccwPos, Quaternion.identity, HandleUtility.GetHandleSize(tar.transform.position) * .06f, Vector3.zero, Handles.CircleHandleCap);
 		Vector3 toCcwHandle = (tar.transform.position - ccwHandle).normalized;
 		Handles.DrawLine(ccwBasePos, ccwPos - (ccwPos - ccwBasePos).normalized * HandleUtility.GetHandleSize(tar.transform.position) * 0.05f);
 
@@ -105,7 +105,7 @@ public class Light2DEditor : Editor
 	void DrawRotationHandle(Light2D tar)
 	{
 		float r = Mathf.Min(HandleUtility.GetHandleSize(tar.transform.position) * 0.6f, tar.Range / 2);
-		Vector3 handlePos = Handles.FreeMoveHandle(tar.transform.position - tar.transform.up * r, Quaternion.identity, HandleUtility.GetHandleSize(tar.transform.position) * .06f, Vector3.zero, Handles.CircleCap);
+		Vector3 handlePos = Handles.FreeMoveHandle(tar.transform.position - tar.transform.up * r, Quaternion.identity, HandleUtility.GetHandleSize(tar.transform.position) * .06f, Vector3.zero, Handles.CircleHandleCap);
 
 		if (GUIUtility.hotControl == GetLastControlId())
 			tar.transform.up = (tar.transform.position - handlePos).normalized;
